@@ -1,6 +1,5 @@
 # Use the Node.js 18 Alpine image as the base for the build stage
-FROM node:18-alpine AS web-build
-
+FROM node:18-alpine
 # Set the working directory in the container
 WORKDIR /usr/src/app
 
@@ -17,16 +16,4 @@ RUN yarn install
 COPY . .
 
 # Build the project using Yarn
-RUN yarn run build
-
-# Use the official nginx image as the base for the production stage
-FROM nginx:latest
-
-# Copy the build output to replace the default nginx contents
-COPY --from=web-build /usr/src/app/dist /usr/share/nginx/html
-
-# Expose port 80 to the Docker daemon so that it can accept connections
-EXPOSE 80
-
-# Start Nginx and ensure it stays in the foreground so the container does not exit
-CMD ["nginx", "-g", "daemon off;"]
+RUN yarn run dev
