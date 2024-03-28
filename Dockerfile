@@ -10,4 +10,4 @@ COPY . .
 RUN cd frontend && yarn install
 
 # Build the project using Yarn
-CMD ["/bin/sh", "-c", "cd /usr/src/app/frontend && yarn run dev"]
+CMD ["/bin/sh", "-c", "cd /usr/src/app/frontend && yarn run dev --host 0.0.0.0"]
