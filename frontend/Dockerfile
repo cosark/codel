@@ -14,7 +14,7 @@ COPY ./client/package.json ./client/yarn.lock ./
 RUN yarn install --cwd client
 
 # Copy the rest of your client's source code into the container
-COPY ./client .
+COPY . .
 
 # Build the project using Yarn
 RUN yarn --cwd client run build
