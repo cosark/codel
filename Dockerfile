@@ -9,6 +9,8 @@ COPY frontend/package.json frontend/yarn.lock .
 # Optionally, if you have other configuration files or directories, copy them as well
 # COPY ./client/other-configs ./other-configs
 
+COPY frontend .
+
 # Install the project dependencies using Yarn
 RUN cd frontend && yarn install
 
