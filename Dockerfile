@@ -9,13 +9,11 @@ COPY frontend/package.json frontend/yarn.lock .
 # Optionally, if you have other configuration files or directories, copy them as well
 # COPY ./client/other-configs ./other-configs
 
-COPY frontend .
+# Copy the rest of your client's source code into the container
+COPY . .
 
 # Install the project dependencies using Yarn
 RUN cd frontend && yarn install
-
-# Copy the rest of your client's source code into the container
-COPY . .
 
 # Build the project using Yarn
 CMD ["yarn", "run", "dev", "--cwd", "frontend"]
