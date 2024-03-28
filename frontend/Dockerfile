@@ -16,4 +16,4 @@ RUN yarn install
 COPY . .
 
 # Build the project using Yarn
-RUN yarn run dev
+CMD ["yarn", "run", "dev"]
