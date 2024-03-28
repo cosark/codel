@@ -5,19 +5,19 @@ FROM node:18-alpine AS web-build
 WORKDIR /usr/src/app
 
 # Copy the 'package.json', 'yarn.lock' and all other necessary files to the container
-COPY ./client/package.json ./client/yarn.lock ./
+COPY package.json yarn.lock .
 
 # Optionally, if you have other configuration files or directories, copy them as well
 # COPY ./client/other-configs ./other-configs
 
 # Install the project dependencies using Yarn
-RUN yarn install --cwd client
+RUN yarn install
 
 # Copy the rest of your client's source code into the container
 COPY . .
 
 # Build the project using Yarn
-RUN yarn --cwd client run build
+RUN yarn run build
 
 # Use the official nginx image as the base for the production stage
 FROM nginx:latest
