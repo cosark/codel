@@ -64,7 +64,7 @@ export const cache = cacheExchange({
 });
 
 const wsClient = createWSClient({
-  url: "ws://" + import.meta.env.VITE_API_URL + "/graphql",
+  url: "wss://" + import.meta.env.VITE_API_URL + "/graphql",
 });
 
 export const graphqlClient = createClient({
