@@ -8,7 +8,8 @@ export default defineConfig({
   plugins: [react(), vanillaExtractPlugin()],
   server: {
     proxy: {
-      "/graphql": "http://localhost:8080",
+      // Update this line to match your production backend URL
+      "/graphql": "https://codel-backend.gj54va.easypanel.host",
     },
   },
   resolve: {
